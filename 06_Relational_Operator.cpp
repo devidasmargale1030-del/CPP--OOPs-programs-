@@ -1,0 +1,46 @@
+// Program 6: Relational Operator Overloading
+
+#include <iostream>
+using namespace std;
+
+class Distance {
+private:
+    int meters;
+
+public:
+    explicit Distance(int value) : meters(value) {}
+
+    bool operator>(const Distance& other) const {
+        return meters > other.meters;
+    }
+
+    void display() const {
+        cout << meters << " meters\n";
+    }
+};
+
+int main() {
+    Distance first(120);
+    Distance second(90);
+
+    cout << "First distance: ";
+    first.display();
+
+    cout << "Second distance: ";
+    second.display();
+
+    if (first > second) {
+        cout << "First distance is greater\n";
+    } else {
+        cout << "Second distance is greater or equal\n";
+    }
+
+    return 0;
+}
+
+/*
+Expected Output:
+First distance: 120 meters
+Second distance: 90 meters
+First distance is greater
+*/
